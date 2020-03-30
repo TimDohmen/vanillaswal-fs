@@ -1,6 +1,6 @@
 import AdviceService from "../Services/AdviceService.js";
 import store from "../store.js";
-import _ns from "../Services/NotificationService.js"
+// import _ns from "../Services/NotificationService.js"
 
 
 //TODO Create the render function
@@ -14,7 +14,7 @@ function _drawAdvice() {
     template += a.Template
     counter++
   })
-  document.getElementById('counter').innerHTML = counter.toString()
+  // document.getElementById('counter').innerHTML = counter.toString()
   document.getElementById('advice').innerHTML = template
 }
 
@@ -32,13 +32,12 @@ export default class AdviceController {
 
   addAdvice(e) {
     e.preventDefault()
-    _ns.toast("Ello")
-    var form = e.target
-    AdviceService.addAdvice()
+    // _ns.toast("Ello")
+    // AdviceService.addAdvice()
   }
 
   toggleAdviceStatus(adviceId) {
-    _ns.toast("Ello")
+    // _ns.toast("Ello")
     AdviceService.toggleAdviceStatus(adviceId)
   }
 
