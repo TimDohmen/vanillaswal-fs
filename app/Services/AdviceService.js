@@ -1,5 +1,6 @@
 import Advice from "../Models/Advice.js";
 import store from "../store.js"
+import ns from "../Services/NotificationService.js"
 
 //NOTE your service is all set up for the observer pattern but there is still work to be done
 
@@ -20,6 +21,7 @@ class AdviceService {
     console.log("Getting the Advice List")
     adviceApi.get("advice")
       .then(res => {
+        ns.toast("got advice")
         let adviceData = new Advice(res.data.slip)
         store.commit('advice', [adviceData])
       })
