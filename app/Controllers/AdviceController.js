@@ -37,7 +37,10 @@ export default class AdviceController {
     AdviceService.addAdvice()
   }
 
-
+  toggleAdviceStatus(adviceId) {
+    _ns.toast("Ello")
+    AdviceService.toggleAdviceStatus(adviceId)
+  }
 
   removeAdvice(adviceId) {
     AdviceService.removeAdvice(adviceId)
