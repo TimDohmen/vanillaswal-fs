@@ -24,6 +24,26 @@ class AdviceService {
         store.commit('advice', [adviceData])
       })
   }
+  getMyAdvice() {
+    console.log("Getting the Advice List")
+    adviceApi.get("Tim/advice")
+      .then(res => {
+        let adviceData = res.data.map(a => new Advice(a))
+        store.commit('myAdvice', adviceData)
+      })
+  }
+  saveAdvice(id) {
+    let advice = store.State.advice.find(advice => advice._id == id)
+    if (advice) {
+      adviceApi.post("Tim/advice", advice)
+        .then(res => {
+          let newAdvice = store.State.myAdvice
+          newAdvice.push(advice)
+          store.commit("myAdvice", newAdvice)
+        })
+        .catch(err => store.commit('error', err.response))
+    }
+  }
 
 
   toggleAdviceStatus(adviceId) {

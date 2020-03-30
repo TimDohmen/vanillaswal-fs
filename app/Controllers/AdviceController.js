@@ -10,12 +10,22 @@ function _drawAdvice() {
   let template = ''
   let advice = store.State.advice
   // console.log("from draw", advice)
+  // debugger
   advice.forEach(a => {
     template += a.Template
     counter++
   })
   // document.getElementById('counter').innerHTML = counter.toString()
   document.getElementById('advice').innerHTML = template
+
+  template = ""
+  let myAdvice = store.State.myAdvice
+  myAdvice.forEach(a => {
+    template += a.Template
+    // counter++
+  })
+  document.getElementById('myAdvice').innerHTML = template
+
 }
 
 
@@ -27,13 +37,14 @@ function _drawError() {
 export default class AdviceController {
   constructor() {
     store.subscribe('advice', _drawAdvice)
+    store.subscribe("myAdvice", _drawAdvice)
+    AdviceService.getMyAdvice()
     AdviceService.getAdvice()
   }
 
-  addAdvice(e) {
-    e.preventDefault()
+  saveAdvice(id) {
     // _ns.toast("Ello")
-    // AdviceService.addAdvice()
+    AdviceService.saveAdvice(id)
   }
 
   toggleAdviceStatus(adviceId) {

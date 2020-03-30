@@ -16,8 +16,10 @@ export default class Advice {
               <input type="checkbox" name="checkedAdvice" ${this.completed ? "checked" : ""} onclick="app.adviceController.toggleAdviceStatus('${this._id}')">
               <span>
               ${this.description}</label>
-              <span onclick="app.adviceController.removeAdvice('${this._id}')" class="deleteX"> X </span>
+              <button class="btn btn-primary" onclick="app.adviceController.saveAdvice('${this._id}')">
+              <span  class="deleteX"> Save Me </span>
               </span> 
+              </button>
               </div>
               </div >
 </div>

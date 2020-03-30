@@ -1,13 +1,15 @@
 
 let _state = {
-  advice: []
+  advice: [],
+  myAdvice: []
 };
 
 /** Collection of listeners to be called based on keyed state changes
  * @type {{[x:string]: function[]}}
  */
 let _listeners = {
-  advice: []
+  advice: [],
+  myAdvice: []
 };
 
 //NOTE You should not need to change the code from this point down
