@@ -67,13 +67,16 @@ class AdviceService {
   }
 
 
-  removeAdvice(adviceId) {
-    adviceApi.delete(adviceId)
-      .then(res => {
-        let index = store.State.advice.findIndex(a => a._id == adviceId)
-        store.State.advice.splice(index, 1)
-        store.commit('advice', store.State.advice)
-      })
+  async removeAdvice(adviceId) {
+    try {
+      await ns.confirmDelete()
+      adviceApi.delete(adviceId)
+      let index = store.State.myAdvice.findIndex(a => a._id == adviceId)
+      store.State.myAdvice.splice(index, 1)
+      store.commit('myAdvice', store.State.myAdvice)
+    } catch (error) {
+      throw new Error(error)
+    }
   }
 
 }

@@ -17,7 +17,11 @@ export default class Advice {
               <span>
               ${this.description}</label>
               <button class="btn btn-primary" onclick="app.adviceController.saveAdvice('${this._id}')">
-              <span  class="deleteX"> Save Me </span>
+              <span  > Save Me </span>
+              </span> 
+              </button>
+              <button class="btn btn-danger" onclick="app.adviceController.removeAdvice('${this._id}')">
+              <span  > Remove Me </span>
               </span> 
               </button>
               </div>

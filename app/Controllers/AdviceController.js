@@ -1,6 +1,6 @@
 import AdviceService from "../Services/AdviceService.js";
 import store from "../store.js";
-// import _ns from "../Services/NotificationService.js"
+import _ns from "../Services/NotificationService.js"
 
 
 //TODO Create the render function
@@ -52,7 +52,7 @@ export default class AdviceController {
     AdviceService.toggleAdviceStatus(adviceId)
   }
 
-  removeAdvice(adviceId) {
+  async removeAdvice(adviceId) {
     AdviceService.removeAdvice(adviceId)
   }
 
